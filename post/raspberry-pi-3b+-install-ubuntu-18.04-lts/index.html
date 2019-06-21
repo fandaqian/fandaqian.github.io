@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+
+  <meta charset="utf-8" />
+
+  
+  <title>Raspberry Pi 3B&#43; Install Ubuntu 18.04 LTS</title>
+
+  
+  
+  <link href="//cdn.jsdelivr.net" rel="dns-prefetch">
+  <link href="//cdnjs.cloudflare.com" rel="dns-prefetch">
+  
+  <link href="//at.alicdn.com" rel="dns-prefetch">
+  
+  <link href="//fonts.googleapis.com" rel="dns-prefetch">
+  <link href="//fonts.gstatic.com" rel="dns-prefetch">
+  
+  
+  
+  <link href="//www.google-analytics.com" rel="dns-prefetch">
+  
+
+  
+
+  
+  <meta name="author" content="Fandaqian">
+  <meta name="description" content="树莓派3B&#43; 安装 Ubuntu18.04 LTS，折腾成 mini server 自用。
+">
+
+  
+  
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@gohugoio">
+    <meta name="twitter:title" content="Raspberry Pi 3B&#43; Install Ubuntu 18.04 LTS">
+    <meta name="twitter:description" content="树莓派3B&#43; 安装 Ubuntu18.04 LTS，折腾成 mini server 自用。
+">
+    <meta name="twitter:image" content="https://fandaqian.github.io/media/cover/ubuntu.png">
+  
+
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Raspberry Pi 3B&#43; Install Ubuntu 18.04 LTS">
+  <meta property="og:description" content="树莓派3B&#43; 安装 Ubuntu18.04 LTS，折腾成 mini server 自用。
+">
+  <meta property="og:url" content="https://fandaqian.github.io/post/raspberry-pi-3b&#43;-install-ubuntu-18.04-lts/">
+  <meta property="og:image" content="https://fandaqian.github.io/media/cover/ubuntu.png">
+
+
+
+
+<meta name="generator" content="Hugo 0.55.6">
+
+
+<link rel="canonical" href="https://fandaqian.github.io/post/raspberry-pi-3b&#43;-install-ubuntu-18.04-lts/">
+
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="format-detection" content="telephone=no,email=no,adress=no">
+<meta http-equiv="Cache-Control" content="no-transform">
+
+
+<meta name="robots" content="index,follow">
+<meta name="referrer" content="origin-when-cross-origin">
+<meta name="google-site-verification" content="33IYUt8ZsG8OgzHx2Xu62_njYrF-5DdAh5HgYGKtP8E">
+<meta name="msvalidate.01" content="B4D42937294AE6811E5FD45EABF9922B">
+
+
+
+
+
+<meta name="theme-color" content="#02b875">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Fandaqian的个人博客">
+<meta name="msapplication-tooltip" content="Fandaqian的个人博客">
+<meta name='msapplication-navbutton-color' content="#02b875">
+<meta name="msapplication-TileColor" content="#02b875">
+<meta name="msapplication-TileImage" content="/icons/icon-144x144.png">
+<link rel="icon" href="https://fandaqian.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://fandaqian.github.io/icons/icon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://fandaqian.github.io/icons/icon-32x32.png">
+<link rel="icon" sizes="192x192" href="https://fandaqian.github.io/icons/icon-192x192.png">
+<link rel="apple-touch-icon" href="https://fandaqian.github.io/icons/icon-152x152.png">
+<link rel="manifest" href="https://fandaqian.github.io/manifest.json">
+
+
+<link rel="preload" href="https://fandaqian.github.io/styles/main-rendered.min.css" as="style">
+
+
+<link rel="preload" href="https://fonts.googleapis.com/css?family=Lobster" as="style">
+<link rel="preload" href="https://fandaqian.github.io/images/fandaqian.png" as="image">
+<link rel="preload" href="https://fandaqian.github.io/images/grey-prism.svg" as="image">
+
+
+<style>
+  body {
+    background: rgb(244, 243, 241) url('/images/grey-prism.svg') repeat fixed;
+  }
+</style>
+<link rel="stylesheet" href="https://fandaqian.github.io/styles/main-rendered.min.css">
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.2/dist/medium-zoom.min.js"></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/video.js@7.3.0/dist/video-js.min.css">
+
+
+
+  
+  
+<!--[if lte IE 8]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/videojs-ie8@1.1.2/dist/videojs-ie8.min.js"></script>
+<![endif]-->
+
+<!--[if lte IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20180112/classList.min.js"></script>
+<![endif]-->
+
+
+</head>
+  <body>
+    <div class="suspension">
+      <a role="button" aria-label="Go to top" title="Go to top" class="to-top is-hide"><span class="icon icon-up" aria-hidden="true"></span></a>
+      
+        
+      
+    </div>
+    
+    
+  <header class="site-header">
+  <a href="https://fandaqian.github.io"><img class="avatar" src="https://fandaqian.github.io/images/fandaqian.png" alt="Avatar"></a>
+  
+  <h2 class="title"><a href="https://fandaqian.github.io">Fandaqian的个人博客</a></h2>
+  
+  <p class="subtitle">~ 没事随便写点啥 ~</p>
+  <button class="menu-toggle" type="button" aria-label="Main Menu" aria-expanded="false" tab-index="0">
+    <span class="icon icon-menu" aria-hidden="true"></span>
+  </button>
+
+  <nav class="site-menu collapsed">
+    <h2 class="offscreen">Main Menu</h2>
+    <ul class="menu-list">
+      
+      
+      
+      
+        <li class="menu-item
+          
+          
+           is-active">
+          <a href="https://fandaqian.github.io/">Home</a>
+        </li>
+      
+        <li class="menu-item
+          
+          
+          ">
+          <a href="https://fandaqian.github.io/tags/">Tags</a>
+        </li>
+      
+        <li class="menu-item
+          
+          
+          ">
+          <a href="https://fandaqian.github.io/about/">About</a>
+        </li>
+      
+    </ul>
+  </nav>
+  <nav class="social-menu collapsed">
+    <h2 class="offscreen">Social Networks</h2>
+    <ul class="social-list"><li class="social-item">
+          <a href="//github.com/fandaqian" rel="me" title="GitHub" aria-label="GitHub">
+	    <span class="icon icon-github" aria-hidden="true"></span>
+          </a>
+        </li></ul>
+  </nav>
+</header>
+
+  <section class="main post-detail">
+    <header class="post-header">
+      <h1 class="post-title">Raspberry Pi 3B&#43; Install Ubuntu 18.04 LTS</h1>
+      <p class="post-meta">@Fandaqian · Jun 20, 2019 · 6 min read</p>
+    </header>
+    <article class="post-content"><p><code>树莓派3B+</code> 安装 <code>Ubuntu18.04 LTS</code>，折腾成 <code>mini server</code> 自用。</p>
+
+<h5 id="登陆"><strong>登陆</strong></h5>
+
+<p>使用 <code>ubuntu/ubuntu</code> 登陆</p>
+
+<h5 id="时间设置"><strong>时间设置</strong></h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">timedatectl status
+timedatectl set-timezone <span style="color:#e6db74">&#34;Asia/Shanghai&#34;</span></code></pre></div>
+<h5 id="网络设置"><strong>网络设置</strong></h5>
+
+<p>使用 <a href="https://netplan.io/examples">netplan.io</a> 配置网络</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo vim /etc/netplan/50-cloud-init.yaml
+netstat -nlt | grep <span style="color:#ae81ff">6379</span>
+netstat -ano | grep <span style="color:#ae81ff">6379</span>
+ps -aux | grep redis</code></pre></div>
+<h5 id="服务配置"><strong>服务配置</strong></h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo systemctl daemon-reload
+sudo systemctl enable
+sudo systemctl start
+sudo systemctl status
+sudo systemctl stop</code></pre></div>
+<p>启用 <code>rc.local</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo vim /lib/systemd/system/rc.local.service</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-config" data-lang="config">[Install]  
+WantedBy=multi-user.target  
+Alias=rc-local.service</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo ln -fs /lib/systemd/system/rc-local.service /etc/systemd/system/rc-local.service
+sudo touch /etc/rc.local
+sudo chmod <span style="color:#ae81ff">755</span> /etc/rc.local
+sudo vim /etc/rc.local</code></pre></div>
+<p><code>rc.local</code> content:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>sudo ifconfig wlan0 <span style="color:#ae81ff">172</span>.16.0.1 netmask <span style="color:#ae81ff">255</span>.255.0.0
+sudo iptables -t nat -A POSTROUTING -s <span style="color:#ae81ff">172</span>.16.0.1/16 -o eth0 -j MASQUERADE
+nohup ss-local -s xx.xx.xx.xx -p <span style="color:#ae81ff">12345</span> -l <span style="color:#ae81ff">1080</span> -k password -m chacha20 -t <span style="color:#ae81ff">300</span> -b <span style="color:#ae81ff">172</span>.16.0.1 &gt;/dev/null <span style="color:#ae81ff">2</span>&gt;&amp;<span style="color:#ae81ff">1</span> &amp;
+<span style="color:#75715e">#nohup /home/ubuntu/soft/BaiduPCS-Go-3.6.7-linux-arm64/BaiduPCS-Go &gt;/dev/null 2&gt;&amp;1 &amp;</span>
+<span style="color:#75715e">#nohup /home/ubuntu/soft/ngrok/ngrok -config=ngrok.cfg -log=stdout -subdomain isreal 80 &gt;/dev/null 2&gt;&amp;1 &amp;</span>
+<span style="color:#75715e">#nohup /home/ubuntu/soft/ngrok/ngrok -config=ngrok.cfg -log=stdout -subdomain isreal-6800 6800 &gt;/dev/null 2&gt;&amp;1 &amp;</span>
+<span style="color:#75715e">#nohup /home/ubuntu/soft/ngrok/ngrok -config=ngrok.cfg -log=stdout -subdomain isreal-5299 5299 &gt;/dev/null 2&gt;&amp;1 &amp;</span>
+nohup /home/ubuntu/soft/frp_0.27.0_linux_arm64/frpc -c /home/ubuntu/soft/frp_0.27.0_linux_arm64/frpc.ini &gt; /dev/null <span style="color:#ae81ff">2</span>&gt;&amp;<span style="color:#ae81ff">1</span> &amp;
+exit <span style="color:#ae81ff">0</span></code></pre></div>
+<h5 id="apt命令"><strong>apt命令</strong></h5>
+
+<table>
+<thead>
+<tr>
+<th>apt 命令</th>
+<th>取代的命令</th>
+<th>命令的功能</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>apt install</td>
+<td>apt-get install</td>
+<td>安装软件包</td>
+</tr>
+
+<tr>
+<td>apt remove</td>
+<td>apt-get remove</td>
+<td>移除软件包</td>
+</tr>
+
+<tr>
+<td>apt purge</td>
+<td>apt-get purge</td>
+<td>移除软件包及配置文件</td>
+</tr>
+
+<tr>
+<td>apt update</td>
+<td>apt-get update</td>
+<td>刷新存储库索引</td>
+</tr>
+
+<tr>
+<td>apt upgrade</td>
+<td>apt-get upgrade</td>
+<td>升级所有可升级的软件包</td>
+</tr>
+
+<tr>
+<td>apt autoremove</td>
+<td>apt-get autoremove</td>
+<td>自动删除不需要的包</td>
+</tr>
+
+<tr>
+<td>apt full-upgrade</td>
+<td>apt-get dist-upgrade</td>
+<td>在升级软件包时自动处理依赖关系</td>
+</tr>
+
+<tr>
+<td>apt search</td>
+<td>apt-cache search</td>
+<td>搜索应用程序</td>
+</tr>
+
+<tr>
+<td>apt show</td>
+<td>apt-cache show</td>
+<td>显示装细节</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th>新的apt命令</th>
+<th>命令的功能</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>apt list</td>
+<td>列出包含条件的包（已安装，可升级等）</td>
+</tr>
+
+<tr>
+<td>apt edit-sources</td>
+<td>编辑源列表</td>
+</tr>
+</tbody>
+</table>
+
+<h5 id="aliyun源"><strong>Aliyun源</strong></h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo vim /etc/apt/sources.list</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-config" data-lang="config">deb http://mirrors.aliyun.com/ubuntu-ports/ bionic main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu-ports/ bionic-security main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu-ports/ bionic-updates main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu-ports/ bionic-proposed main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu-ports/ bionic-backports main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu-ports/ bionic main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu-ports/ bionic-security main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu-ports/ bionic-updates main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu-ports/ bionic-proposed main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu-ports/ bionic-backports main restricted universe multiverse</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt update</code></pre></div>
+<h5 id="samba"><strong>Samba</strong></h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt install samba
+sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.back
+sudo vim /etc/samba/smb.conf</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-config" data-lang="config">[share]
+comment = pi share
+valid users = ubuntu
+path = /home/ubuntu/share
+browseable = yes
+read only = no
+writable = yes
+public = yes
+create mask = 0664
+directory mask = 0775
+
+[download]
+comment = pi download
+valid users = ubuntu
+path = /home/ubuntu/download
+browseable = yes
+read only = no
+writable = yes
+public = yes
+create mask = 0664
+directory mask = 0775</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo smbpasswd -a ubuntu
+sudo systemctl restart smbd.service
+sudo systemctl enable smbd.service</code></pre></div>
+<h5 id="aria2"><strong>aria2</strong></h5>
+
+<p>see: <a href="https://blog.csdn.net/kxwinxp/article/details/80288006">3B+ Aria2</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt install aria2
+vim ~/.config/aria2/aria2.config
+touch ~/.config/aria2/aria2.session
+sudo vim /lib/systemd/system/aria.service</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-config" data-lang="config">[Unit]
+Description=Aria2 Service
+After=network.target
+
+[Service]
+User=ubuntu
+Type=forking
+ExecStart=/usr/bin/aria2c --conf-path=/home/ubuntu/.config/aria2/aria2.config
+
+[Install]
+WantedBy=multi-user.target</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo systemctl daemon-reload
+sudo systemctl enable aria // system start  
+sudo systemctl status aria  
+sudo systemctl <span style="color:#f92672">(</span>start | stop | restart<span style="color:#f92672">)</span> aria
+sudo systemctl unmask aria</code></pre></div>
+<p><a href="https://github.com/ngosang/trackerslist">trackers_best (20 trackers)</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">vim ~/.config/aria2/aria2.config
+bt-tracker<span style="color:#f92672">=</span>udp://tracker.coppersurfer.tk:6969/announce,...</code></pre></div>
+<p>download <a href="https://github.com/mayswind/AriaNg">AriaNg</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo mv aira-ng /var/www/html/</code></pre></div>
+<p>then run: <code>http://{ip}/aira-ng</code>, set rpc secret: <code>secret</code></p>
+
+<h5 id="nginx"><strong>nginx</strong></h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt install -y nginx
+sudo systemctl enable nginx
+sudo vi /etc/nginx/sites-enabled/default</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-config" data-lang="config">upstream baidu_pcs {
+	server 127.0.0.1:5299;
+}
+
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+
+	# Add index.php to the list if you are using PHP
+	index index.html index.htm index.nginx-debian.html;
+
+	server_name 172.16.0.1;
+
+	location / {
+		root /var/www/html;
+        index  index.php index.html index.htm;
+		try_files $uri $uri/ =404;
+	}
+	
+	location ~ \.php$ {
+		root /var/www/html;
+		fastcgi_pass 127.0.0.1:9000;
+		fastcgi_index index.php;
+		fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+		include fastcgi_params;
+	}
+	
+	location /dist {
+		proxy_pass http://baidu_pcs;
+	
+		#Proxy Settings
+		proxy_redirect     off;
+		proxy_set_header   Host             $host;
+		proxy_set_header   X-Real-IP        $remote_addr;
+		proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
+		proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504;
+		proxy_max_temp_file_size 0;
+		proxy_connect_timeout      90;
+		proxy_send_timeout         90;
+		proxy_read_timeout         90;
+		proxy_buffer_size          4k;
+		proxy_buffers              4 32k;
+		proxy_busy_buffers_size    64k;
+		proxy_temp_file_write_size 64k;
+	}	
+}</code></pre></div>
+<h5 id="hostapd"><strong>hostapd</strong></h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt install hostapd
+sudo vim /etc/default/hostapd set DAEMON_CONF<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/etc/hostapd/hostapd.conf&#34;</span>
+sudo vim /etc/hostapd/hostapd.conf</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-config" data-lang="config">#设置默认的接入点为无线网卡wlan0
+interface=wlan0
+
+#设置驱动程序为nl80211, hostapd 0.6.8或者更高版本唯一选择
+driver=nl80211
+
+#设置网卡工作模式为802.11G
+hw_mode=g
+
+#设置无线网络SSID为RaspberryPi
+ssid=JINGTONG
+
+#802.11b/g都至多只有三条互不干扰的信道，即1,6,11，一般填这三个其中一个    
+channel=11
+
+#验证身份的算法，1表示只支持wpa，2表示只支持wep,3表示两者都支持，wep已经被淘汰了，请不要使用。
+wpa=1
+
+#设置密码
+wpa_passphrase=jingtong888888
+
+#对所有用户进行同样的认证，不进行单独的认证，如果需要，请设置为WPA-EAP
+wpa_key_mgmt=WPA-PSK
+
+#控制支持加密数据的秘钥，CCMP比TKIP更强
+wpa_pairwise=CCMP
+rsn_pairwise=CCMP
+beacon_int=100
+auth_algs=3
+wmm_enabled=1
+wmm_enabled=1</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo hostapd /etc/hostapd/hostapd.conf</code></pre></div>
+<h5 id="isc-dhcp-server"><strong>isc-dhcp-server</strong></h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt install isc-dhcp-server
+sudo vim /etc/default/isc-dhcp-server set INTERFACESv4<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;wlan0&#34;</span>
+sudo vim /etc/dhcp/dhcpd.conf</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-config" data-lang="config">max-lease-time 864000;
+subnet 172.16.0.0 netmask 255.255.0.0 {
+  range 172.16.0.10 172.16.0.100;
+  option routers 172.16.0.1;
+  option domain-name-servers 192.168.1.1;
+}</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo vim /etc/sysctl.conf<span style="color:#e6db74">`</span> set <span style="color:#e6db74">`</span>net.ipv4.ip_forward<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+sudo sysctl -p
+
+sudo ifconfig wlan0 <span style="color:#ae81ff">172</span>.16.0.1 netmask <span style="color:#ae81ff">255</span>.255.0.0
+sudo iptables -t nat -A POSTROUTING -s <span style="color:#ae81ff">172</span>.16.0.1/16 -o eth0 -j MASQUERADE
+
+sudo systemctl start isc-dhcp-server start</code></pre></div>
+<p>see <a href="https://blog.csdn.net/qq_20448859/article/details/54131187">hostapd ap</a></p>
+
+<h5 id="redis"><strong>redis</strong></h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt install redis-server
+sudo vi /etc/redis/redis.conf</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-config" data-lang="config">#bind 127.0.0.1 ::1
+protected-mode no</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo systemctl restart redis-server</code></pre></div>
+<h5 id="mysql"><strong>mysql</strong></h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt update
+sudo apt install mysql-server
+sudo mysql_secure_installation
+sudo mysql -uroot -p</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">use mysql;  
+<span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">user</span>, <span style="color:#66d9ef">host</span>, plugin, authentication_string <span style="color:#66d9ef">FROM</span> <span style="color:#66d9ef">user</span>;  
+<span style="color:#66d9ef">UPDATE</span> <span style="color:#66d9ef">user</span> <span style="color:#66d9ef">SET</span> plugin<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;mysql_native_password&#34;</span>, authentication_string<span style="color:#f92672">=</span>PASSWORD(<span style="color:#e6db74">&#34;fdqfdq&#34;</span>) <span style="color:#66d9ef">WHERE</span> <span style="color:#66d9ef">user</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;root&#34;</span>;  
+<span style="color:#66d9ef">UPDATE</span> <span style="color:#66d9ef">user</span> <span style="color:#66d9ef">SET</span> <span style="color:#66d9ef">host</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;%&#34;</span> <span style="color:#66d9ef">WHERE</span> <span style="color:#66d9ef">user</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;root&#34;</span>;  
+<span style="color:#66d9ef">select</span> <span style="color:#f92672">`</span><span style="color:#66d9ef">user</span><span style="color:#f92672">`</span>, <span style="color:#f92672">`</span><span style="color:#66d9ef">host</span><span style="color:#f92672">`</span> <span style="color:#66d9ef">from</span> mysql.<span style="color:#66d9ef">user</span>;  
+FLUSH <span style="color:#66d9ef">PRIVILEGES</span>;  
+exit;  </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-config" data-lang="config">bind-address = 0.0.0.0</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo systemctl restart mysql</code></pre></div>
+<h5 id="ss"><strong>ss</strong></h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt install ss-libev
+nohup ss-local -s xx.xx.xx.xx -p <span style="color:#ae81ff">12345</span> -l <span style="color:#ae81ff">1080</span> -k password -m chacha20 -t <span style="color:#ae81ff">300</span> -b <span style="color:#ae81ff">172</span>.16.0.1 &gt;/dev/null <span style="color:#ae81ff">2</span>&gt;&amp;<span style="color:#ae81ff">1</span> &amp;</code></pre></div>
+<p>Google Chrome 安装 <a href="https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif?utm_source=chrome-ntp-icon">SwitchyOmega</a> 配置 <code>auto switch</code> AutoProxy: <a href="https://raw.githubusercontent.com/ggglist/ggglist/master/ggglist.txt">ggglist.txt</a></p>
+
+<h5 id="阿里云香港轻量应用服务器安装ss"><strong>阿里云香港轻量应用服务器安装ss</strong></h5>
+
+<p>卸载安骑士</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">wget http://update.aegis.aliyun.com/download/uninstall.sh
+wget http://update.aegis.aliyun.com/download/quartz_uninstall.sh
+chmod +x uninstall.sh quartz_uninstall.sh
+./uninstall.sh
+./quartz_uninstall.sh</code></pre></div>
+<p>清理残留文件</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">pkill aliyun-service
+rm -rf /etc/init.d/agentwatch /usr/sbin/aliyun-service
+rm -rf /usr/local/aegis*</code></pre></div>
+<p>屏蔽阿里云盾IP地址</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">iptables -I INPUT -s <span style="color:#ae81ff">140</span>.205.225.183/32 -j DROP
+iptables -I INPUT -s <span style="color:#ae81ff">140</span>.205.225.206/32 -j DROP
+iptables -I INPUT -s <span style="color:#ae81ff">140</span>.205.225.205/32 -j DROP
+iptables -I INPUT -s <span style="color:#ae81ff">140</span>.205.225.195/32 -j DROP
+iptables -I INPUT -s <span style="color:#ae81ff">140</span>.205.225.204/32 -j DROP
+iptables -I INPUT -s <span style="color:#ae81ff">140</span>.205.201.0/28 -j DROP
+iptables -I INPUT -s <span style="color:#ae81ff">140</span>.205.201.16/29 -j DROP
+iptables -I INPUT -s <span style="color:#ae81ff">140</span>.205.201.32/28 -j DROP
+iptables -I INPUT -s <span style="color:#ae81ff">140</span>.205.225.192/29 -j DROP
+iptables -I INPUT -s <span style="color:#ae81ff">140</span>.205.225.200/30 -j DROP
+iptables -I INPUT -s <span style="color:#ae81ff">140</span>.205.225.184/29 -j DROP</code></pre></div>
+<p>秋水ss</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh
+chmod +x shadowsocks-all.sh
+./shadowsocks-all.sh <span style="color:#ae81ff">2</span>&gt;&amp;<span style="color:#ae81ff">1</span> | tee shadowsocks-all.log
+./shadowsocks-all.sh uninstall
+/etc/init.d/shadowsocks-r start | stop | restart | status
+/etc/shadowsocks-r/config.json</code></pre></div>
+<h5 id="php7-2"><strong>php7.2</strong></h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt install sqlite3
+sudo apt install php7.2 php7.2-fpm php7.2-curl php7.2-gd php7.2-imap php7.2-json php7.2-sqlite3 php7.2-xmlrpc php7.2-mbstring
+/lib/systemd/system/php7.2-fpm.service
+
+sudo apt install aptitude
+sudo aptitude install libssl-dev
+sudo apt install php7.2-dev
+
+sudo apt install libmcrypt-dev</code></pre></div>
+<p>安装mcrypt</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">wget http://pecl.php.net/get/mcrypt-1.0.1.tgz
+tar zxvf mcrypt-1.1.1.tgz
+cd mcrypt-1.0.1
+phpize
+./configure --with-php-config<span style="color:#f92672">=</span>/usr/bin/php-config
+make <span style="color:#f92672">&amp;&amp;</span> sudo make install</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo vi /etc/php/7.2/fpm/php.ini</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-config" data-lang="config">extension=mbstring.so
+extension=mcrypt.so</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo vi /etc/php/7.2/fpm/pool.d/www.conf</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-config" data-lang="config">listen = 127.0.0.1:9000</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo systemctl restart php7.2-fpm</code></pre></div>
+<h5 id="frp"><strong>frp</strong></h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">wget https://github.com/fatedier/frp/releases/download/v0.27.0/frp_0.27.0_windows_amd64.zip
+wget https://github.com/fatedier/frp/releases/download/v0.27.0/frp_0.27.0_linux_arm64.tar.gz</code></pre></div>
+<p>frps.ini</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-config" data-lang="config">[common]
+bind_port = 37000
+vhost_http_port = 37001
+token = xxxxx
+
+log_file = frps.log
+log_level = info
+log_max_days = 3
+
+#dashboard_addr = 127.0.0.1
+##dashboard_port = 7500
+#dashboard_user = frp
+#dashboard_pwd = isreal_frp</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">frps.exe -c frps.ini</code></pre></div>
+<p>frpc.ini</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-config" data-lang="config">[common]
+server_addr = xx.xx.xx.xx
+server_port = 37000
+
+token = xxxxx
+
+log_file = frpc.log
+log_level = info
+log_max_days = 3
+
+[web]
+type = http
+local_port = 80
+custom_domains = www.xxxxx.com
+
+[range:tcp_port]
+type = tcp
+local_ip = 172.16.0.11
+local_port = 12345
+remote_port = 12346
+use_encryption = false
+use_compression = false
+
+[range:tcp_port]
+type = tcp
+local_ip = 127.0.0.1
+local_port = 6800
+remote_port = 12347
+use_encryption = false
+use_compression = false
+
+[ssh]
+type = tcp
+local_ip = 127.0.0.1
+local_port = 22
+use_compression = false
+remote_port = 12348</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">nohup /home/ubuntu/soft/frp_0.27.0_linux_arm64/frpc -c /home/ubuntu/soft/frp_0.27.0_linux_arm64/frpc.ini &gt; /dev/null <span style="color:#ae81ff">2</span>&gt;&amp;<span style="color:#ae81ff">1</span> &amp;</code></pre></div>
+<h5 id="ftp"><strong>ftp</strong></h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt install vsftpd
+sudo vi /etc/vsftpd.conf</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-config" data-lang="config">listen=NO #
+anonymous_enable=NO # 拒绝匿名登陆
+write_enable=YES # 设置可以上传文件，这个设置看需要个人需要
+xferlog_enable=YES # 开启日志记录
+xferlog_file=/var/log/vsftpd.log # 设置日志文件路径
+xferlog_std_format=YES # 设置日志格式为标准输出
+connect_from_port_20=YES # 绑定20端口
+ftpd_banner=Welcome to FTP service. # 欢迎语句，在使用shell时可以看到
+pam_service_name=ftp # 原配置中为vsftpd，ubuntu用户需要更改成ftp
+chroot_local_user=YES
+chroot_list_enable=YES
+chroot_list_file=/etc/vsftpd.chroot_list</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-config" data-lang="config">sudo vi /etc/vsftpd.chroot_list</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-config" data-lang="config">ftpuser</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">mkdir /home/ftpuser
+sudo useradd ftpuser -d /home/ftpuser -m
+sudo passwd ftpuser
+usermod -s /sbin/nologin ftpuser
+sudo systemctl restart vsftpd</code></pre></div></article>
+    <footer class="post-footer">
+      
+      <ul class="post-tags">
+        
+          <li><a href="https://fandaqian.github.io/tags/raspberry-pi"><span class="tag">Raspberry Pi</span></a></li>
+        
+          <li><a href="https://fandaqian.github.io/tags/ubuntu"><span class="tag">Ubuntu</span></a></li>
+        
+      </ul>
+      
+      <p class="post-copyright">
+        © This post is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License, please give source if you wish to quote or reproduce.
+      </p>
+    </footer>
+    
+      
+    
+  </section>
+  
+<footer class="site-footer">
+  <p>© 2017-2019 Fandaqian的个人博客</p>
+  <p>Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> with theme <a href="https://github.com/laozhu/hugo-nuo" target="_blank" rel="noopener">Nuo</a>.</p>
+  
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/smooth-scroll@15.0.0/dist/smooth-scroll.min.js"></script>
+
+
+
+<script async src="https://cdn.jsdelivr.net/npm/video.js@7.3.0/dist/video.min.js"></script>
+
+
+
+
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$'], ['\\[','\\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+      extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    },
+  });
+</script>
+<script type="text/x-mathjax-config">
+  // Fix <code> tags after MathJax finishes running. This is a
+  // hack to overcome a shortcoming of Markdown. Discussion at
+  // https://github.com/mojombo/jekyll/issues/199
+  MathJax.Hub.Queue(() => {
+    MathJax.Hub.getAllJax().map(v => v.SourceElement().parentNode.className += ' has-jax');
+  });
+</script>
+
+
+
+<script src="https://fandaqian.github.io/scripts/index.min.js"></script>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('\/service-worker.js').then(function() {
+      console.log('[ServiceWorker] Registered');
+    });
+  }
+</script>
+
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-XXXXXXXX-X', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+  </body>
+</html>
