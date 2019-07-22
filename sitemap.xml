@@ -9,14 +9,37 @@
   
   <url>
     <loc>https://fandaqian.github.io/</loc>
-    <lastmod>2019-06-20T00:00:00+00:00</lastmod>
+    <lastmod>2019-07-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://fandaqian.github.io/tags/git/</loc>
+    <lastmod>2019-07-22T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://fandaqian.github.io/post/</loc>
-    <lastmod>2019-06-20T00:00:00+00:00</lastmod>
+    <lastmod>2019-07-22T00:00:00+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://fandaqian.github.io/tags/</loc>
+    <lastmod>2019-07-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://fandaqian.github.io/tags/ubuntu/</loc>
+    <lastmod>2019-07-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://fandaqian.github.io/post/ubuntu-18.04-install-git-server/</loc>
+    <lastmod>2019-07-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -28,18 +51,6 @@
   <url>
     <loc>https://fandaqian.github.io/post/raspberry-pi-3b&#43;-install-ubuntu-18.04-lts/</loc>
     <lastmod>2019-06-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://fandaqian.github.io/tags/</loc>
-    <lastmod>2019-06-20T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fandaqian.github.io/tags/ubuntu/</loc>
-    <lastmod>2019-06-20T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
