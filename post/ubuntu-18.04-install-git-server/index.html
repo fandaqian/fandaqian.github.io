@@ -193,7 +193,46 @@
       <h1 class="post-title">Ubuntu 18.04 Install Git Server</h1>
       <p class="post-meta">@Fandaqian · Jul 22, 2019 · 1 min read</p>
     </header>
-    <article class="post-content"><p>阿里云<code>Ubuntu18.04 LTS</code>安装<code>git</code>服务。</p></article>
+    <article class="post-content"><p>阿里云<code>Ubuntu18.04 LTS</code>安装<code>git</code>服务。</p>
+
+<h5 id="安装git"><strong>安装Git</strong></h5>
+
+<p><code>sudo apt install git</code></p>
+
+<h5 id="创建账户git"><strong>创建账户git</strong></h5>
+
+<p><code>sudo adduser git</code></p>
+
+<h5 id="创建证书登录"><strong>创建证书登录</strong></h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cd /home/git/
+mkdir .ssh
+touch .ssh/authorized_keys
+chmod <span style="color:#ae81ff">600</span> .ssh/authorized_keys
+cat id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</code></pre></div>
+<h5 id="初始化git仓库"><strong>初始化git仓库</strong></h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cd /home/git
+mkdir gitrepo.git
+
+cd gitrepo.git
+git init --bare gitrepo.git
+Initialized empty Git repository in /home/git/gitrepo.git/
+
+chown -R git:git gitrepo.git/</code></pre></div>
+<h5 id="客户端操作"><strong>客户端操作</strong></h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">ssh-keygen -t RSA -C <span style="color:#e6db74">&#34;fandaqian@xx.com&#34;</span>
+
+git config --global user.name <span style="color:#e6db74">&#34;fandaqian&#34;</span>
+git config --global user.email <span style="color:#e6db74">&#34;fandaqian@xx.com&#34;</span></code></pre></div>
+<h5 id="git常用命令-https-www-cnblogs-com-chenwolong-p-git-html"><strong><a href="https://www.cnblogs.com/chenwolong/p/GIT.html">git常用命令</a></strong></h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git clone git@xx.xx.xx.xx:/home/git/gitrepo.git
+
+git add .
+
+git commit -m <span style="color:#e6db74">&#34;commit message.&#34;</span>
+
+git pull origin master
+
+git push origin master</code></pre></div></article>
     <footer class="post-footer">
       
       <ul class="post-tags">
